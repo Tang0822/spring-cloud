@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author jftang3
  */
-@FeignClient(name = "producer", fallback = HelloRemoteHystrixImpl.class)
+@FeignClient(name = "producer1", fallback = HelloRemoteHystrixImpl.class)
 public interface HelloRemote {
 
     /**
@@ -19,5 +19,5 @@ public interface HelloRemote {
      * @return
      */
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String helloWord(@RequestParam(value = "name") String name);
+    public String helloWord1(@RequestParam(value = "name") String name);
 }

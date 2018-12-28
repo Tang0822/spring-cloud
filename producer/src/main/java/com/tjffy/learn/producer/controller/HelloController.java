@@ -13,6 +13,6 @@ public class HelloController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String helloWord(String name) {
-        return "hello word " + name + "this is 1";
+        return "hello word " + name + "this is 2";
     }
 }

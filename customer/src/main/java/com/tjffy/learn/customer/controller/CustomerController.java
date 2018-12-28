@@ -18,6 +18,6 @@ public class CustomerController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String helloWord(String name) {
-        return helloRemote.helloWord(name);
+        return helloRemote.helloWord1(" customer1 " + name);
     }
 }
