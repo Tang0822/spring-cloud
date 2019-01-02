@@ -1,6 +1,14 @@
 spring:
   application:
     name: customer2
+  cloud:
+      config:
+        server:
+          git:
+            uri: https://github.com/Tang0822/spring-cloud/
+            search-paths: config-repo
+            username: Tang0822
+            password: tjf19920722
 
 server:
   port: 6004
