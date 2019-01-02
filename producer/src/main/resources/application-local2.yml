@@ -1,3 +1,7 @@
+spring:
+  application:
+    name: producer2
+
 server:
   port: 6003
 

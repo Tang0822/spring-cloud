@@ -20,6 +20,8 @@
 		<module>eureka-server-two</module>
 		<module>producer</module>
 		<module>customer</module>
+		<module>dashboard</module>
+		<module>zuul</module>
 	</modules>
 
 	<properties>
