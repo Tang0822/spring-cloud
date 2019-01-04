@@ -1,1 +1,12 @@
+spring:
+  zipkin:
+    base-url: http://localhost:8004
+# 采样比例为1.0，也就是全部都需要
+  sleuth:
+    sampler:
+      percentage: 1.0
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7003/eureka/, http://localhost:7004/eureka/, http://localhost:7005/eureka/
