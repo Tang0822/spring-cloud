@@ -54,7 +54,7 @@ services:
   producer:
       image: tjffy/producer:1.0-SNAPSHOT
       ports:
-        - "8003:8003"
+        - "6003:6003"
       container_name: producer2
       volumes:
          - /etc/localtime:/etc/localtime
@@ -64,7 +64,7 @@ services:
   customer:
       image: tjffy/customer:1.0-SNAPSHOT
       ports:
-        - "8003:8003"
+        - "6004:6004"
       container_name: customer2
       volumes:
          - /etc/localtime:/etc/localtime
@@ -74,7 +74,7 @@ services:
   zipkin:
       image: tjffy/zipkin:1.0-SNAPSHOT
       ports:
-        - "8003:8003"
+        - "8004:8004"
       container_name: zipkin
       volumes:
          - /etc/localtime:/etc/localtime
@@ -82,7 +82,7 @@ services:
   dashboard:
       image: tjffy/dashboard:1.0-SNAPSHOT
       ports:
-        - "8003:8003"
+        - "6005:6005"
       container_name: dashboard
       volumes:
          - /etc/localtime:/etc/localtime
