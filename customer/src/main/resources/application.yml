@@ -1,0 +1,19 @@
+feign:
+  hystrix:
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7003/eureka/, http://localhost:7004/eureka/, http://localhost:7005/eureka/
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Tang0822/spring-cloud/
+          search-paths: config-repo
+          username: Tang0822
+          password: tjf19920722
+
