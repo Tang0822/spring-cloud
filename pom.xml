@@ -17,7 +17,6 @@
 
 	<modules>
 		<module>eureka-server-cluster</module>
-		<module>eureka-server-two</module>
 		<module>producer</module>
 		<module>customer</module>
 		<module>dashboard</module>
