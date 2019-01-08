@@ -1,4 +1,4 @@
-version: 3
+version: '3'
 services:
   eureka-server-cluster:
     image: tjffy/eureka-server-cluster:1.0-SNAPSHOT
