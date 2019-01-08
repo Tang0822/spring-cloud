@@ -21,3 +21,5 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:7003/eureka/, http://localhost:7004/eureka/, http://localhost:7005/eureka/
 
+logging:
+  config: classpath:logback.xml

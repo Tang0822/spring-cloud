@@ -17,3 +17,5 @@ spring:
           username: Tang0822
           password: tjf19920722
 
+logging:
+  config: classpath:logback.xml

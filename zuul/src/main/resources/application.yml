@@ -5,3 +5,6 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
+
+logging:
+  config: classpath:logback.xml
