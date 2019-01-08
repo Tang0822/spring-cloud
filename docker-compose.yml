@@ -1,6 +1,6 @@
 version: '3'
 services:
-  eureka-server-cluster:
+  eureka-server-cluster3:
       image: tjffy/eureka-server-cluster:0.0.1-SNAPSHOT
       ports:
         - "7003:7003"
@@ -8,7 +8,7 @@ services:
       volumes:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=peer3", "-jar", "/app.jar"]
-  eureka-server-cluster:
+  eureka-server-cluster4:
       image: tjffy/eureka-server-cluster:0.0.1-SNAPSHOT
       ports:
         - "7004:7004"
@@ -16,7 +16,7 @@ services:
       volumes:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=peer4", "-jar", "/app.jar"]
-  eureka-server-cluster:
+  eureka-server-cluster5:
       image: tjffy/eureka-server-cluster:0.0.1-SNAPSHOT
       ports:
         - "7005:7005"
@@ -24,7 +24,7 @@ services:
       volumes:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=peer5", "-jar", "/app.jar"]
-  zuul:
+  zuul1:
       image: tjffy/zuul:0.0.1-SNAPSHOT
       ports:
         - "8002:8002"
@@ -33,7 +33,7 @@ services:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=zuul1", "-jar", "/app.jar"]
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=zuul2", "-jar", "/app.jar"]
-  zuul:
+  zuul2:
       image: tjffy/zuul:0.0.1-SNAPSHOT
       ports:
         - "8003:8003"
