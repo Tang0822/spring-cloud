@@ -1,3 +1,6 @@
 spring:
   application:
     name: eureka-server-cluster
+
+logging:
+  config: classpath:logback.xml
