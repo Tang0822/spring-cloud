@@ -6,5 +6,15 @@ spring:
     sampler:
       percentage: 1.0
 
+zuul:
+# 是否开启重试功能
+  retryable: true
+
+ribbon:
+# 对当前服务的重试次数
+  MaxAutoRetries: 2
+# 切换相同Server的次数
+  MaxAutoRetriesNextServer: 0
+
 logging:
   config: classpath:logback.xml
