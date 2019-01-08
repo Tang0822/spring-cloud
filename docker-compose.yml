@@ -1,7 +1,7 @@
 version: '3'
 services:
   eureka-server-cluster:
-      image: tjffy/eureka-server-cluster:1.0-SNAPSHOT
+      image: tjffy/eureka-server-cluster:0.0.1-SNAPSHOT
       ports:
         - "7003:7003"
       container_name: eureka-server-cluster3
@@ -9,7 +9,7 @@ services:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=peer3", "-jar", "/app.jar"]
   eureka-server-cluster:
-      image: tjffy/eureka-server-cluster:1.0-SNAPSHOT
+      image: tjffy/eureka-server-cluster:0.0.1-SNAPSHOT
       ports:
         - "7004:7004"
       container_name: eureka-server-cluster4
@@ -17,7 +17,7 @@ services:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=peer4", "-jar", "/app.jar"]
   eureka-server-cluster:
-      image: tjffy/eureka-server-cluster:1.0-SNAPSHOT
+      image: tjffy/eureka-server-cluster:0.0.1-SNAPSHOT
       ports:
         - "7005:7005"
       container_name: eureka-server-cluster5
@@ -25,7 +25,7 @@ services:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=peer5", "-jar", "/app.jar"]
   zuul:
-      image: tjffy/zuul:1.0-SNAPSHOT
+      image: tjffy/zuul:0.0.1-SNAPSHOT
       ports:
         - "8002:8002"
       container_name: zuul1
@@ -34,7 +34,7 @@ services:
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=zuul1", "-jar", "/app.jar"]
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=zuul2", "-jar", "/app.jar"]
   zuul:
-      image: tjffy/zuul:1.0-SNAPSHOT
+      image: tjffy/zuul:0.0.1-SNAPSHOT
       ports:
         - "8003:8003"
       container_name: zuul2
@@ -44,7 +44,7 @@ services:
       links:
         - zipkin
   producer:
-      image: tjffy/producer:1.0-SNAPSHOT
+      image: tjffy/producer:0.0.1-SNAPSHOT
       ports:
         - "6003:6003"
       container_name: producer2
@@ -54,7 +54,7 @@ services:
       links:
          - zipkin
   customer:
-      image: tjffy/customer:1.0-SNAPSHOT
+      image: tjffy/customer:0.0.1-SNAPSHOT
       ports:
         - "6004:6004"
       container_name: customer2
@@ -62,7 +62,7 @@ services:
          - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=customer2", "-jar", "/app.jar"]
   zipkin:
-      image: tjffy/zipkin:1.0-SNAPSHOT
+      image: tjffy/zipkin:0.0.1-SNAPSHOT
       ports:
         - "8004:8004"
       container_name: zipkin
@@ -70,7 +70,7 @@ services:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
   dashboard:
-      image: tjffy/dashboard:1.0-SNAPSHOT
+      image: tjffy/dashboard:0.0.1-SNAPSHOT
       ports:
         - "6005:6005"
       container_name: dashboard
