@@ -32,7 +32,6 @@ services:
       volumes:
         - /etc/localtime:/etc/localtime
       command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=zuul1", "-jar", "/app.jar"]
-      command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-Dspring.profiles.active=zuul2", "-jar", "/app.jar"]
   zuul2:
       image: tjffy/zuul:0.0.1-SNAPSHOT
       ports:
