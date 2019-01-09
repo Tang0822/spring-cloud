@@ -1,0 +1,30 @@
+package com.tjffy.learn.auth.entity;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+
+@Getter
+@Setter
+public class MyGrantedAuthority implements GrantedAuthority {
+
+    private static final long serialVersionUID = 8927953484660803724L;
+
+    private String url;
+    private String method;
+    private Integer isCommon;
+    private String path;
+
+
+    public MyGrantedAuthority(String url, String method, Integer isCommon, String path) {
+        this.url = url;
+        this.method = method;
+        this.isCommon = isCommon;
+        this.path = path;
+    }
+
+    @Override
+    public String getAuthority() {
+        return this.url + ";" + this.method + ";" + this.isCommon + ";" + this.path;
+    }
+}
