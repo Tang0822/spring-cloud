@@ -7,11 +7,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -31,7 +29,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
             Group group = user.getGroup();
             List<Permission> permissions = user.getGroup().getPermissions();
             for (Permission permission : permissions) {
-                GrantedAuthority grantedAuthority = new MyGrantedAuthority(permission.getUrl(), permission.getMethod(), permission.getIsCom(), permission.getPath());
+                GrantedAuthority grantedAuthority = new MyGrantedAuthority(group.getName(), permission.getUrl(), permission.getMethod(), permission.getIsCom(), permission.getPath());
                 grantedAuthorities.add(grantedAuthority);
             }
             return new MyUserDetails(user.getId(), username, user.getPassword(), true, group.getId(), group.getType(), grantedAuthorities);

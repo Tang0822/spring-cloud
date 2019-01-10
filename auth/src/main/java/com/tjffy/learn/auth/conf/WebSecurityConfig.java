@@ -1,9 +1,11 @@
 package com.tjffy.learn.auth.conf;
 
+import com.tjffy.learn.auth.filter.MyFilterSecurityInterceptor;
 import com.tjffy.learn.auth.handler.AuthenticationSuccessHandler;
 import com.tjffy.learn.auth.handler.LogoutSuccessHandler;
 import com.tjffy.learn.auth.filter.MyUsernamePasswordAuthenticationFilter;
 import com.tjffy.learn.auth.service.impl.MyUserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -17,6 +19,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 
@@ -38,6 +41,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         memoryUserDetailsManager.createUser(User.withUsername("admin").password("admin").build());
         return memoryUserDetailsManager;
     }
+
+    @Autowired
+    private MyFilterSecurityInterceptor myFilterSecurityInterceptor;
 
     @Bean
     UserDetailsService myUserDetailsServiceImpl() {
@@ -89,7 +95,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         // 忽略静态文件
-        web.ignoring().antMatchers("/static/**");
+        web.ignoring().antMatchers("/css/**", "/img/**", "/fonts/**", "/info/**");
     }
 
     @Override
@@ -104,6 +110,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler()).permitAll()
                 .and()
                 .addFilter(myUsernamePasswordAuthenticationFilter())
+                .addFilterBefore(myFilterSecurityInterceptor, FilterSecurityInterceptor.class)
                 .csrf().disable();
 
     }
